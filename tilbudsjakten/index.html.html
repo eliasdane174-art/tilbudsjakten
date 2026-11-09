@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilbudsjakten – Norges beste snacksjakt</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap');
+:root{--bg:#100d1b;--panel:#1d1830;--purple:#875cff;--pink:#ff65a5;--text:#fff;--muted:#aaa2bd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif}
+header{background:#191426;border-bottom:1px solid #ffffff12;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5}
+.logo{font:800 24px Outfit}.logo span{color:var(--pink)}
+.logo small{display:block;font:700 9px 'DM Sans';letter-spacing:2px;color:var(--muted)}
+.status{font-size:12px;color:#75e0a8}
+main{max-width:1180px;margin:auto;padding:30px 22px}
+.hero{min-height:310px;padding:42px;border-radius:25px;background:linear-gradient(115deg,#35205d,#6d3291 65%,#a83c85);position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-content{max-width:570px;position:relative;z-index:1}
+.eyebrow{font-size:11px;letter-spacing:2px;color:#e0cfff;font-weight:800}
+h1{font:800 clamp(42px,6vw,68px)/.98 Outfit;margin:15px 0}
+h1 span{color:#ff91bd}
+.hero p{color:#eee0f7;line-height:1.6}
+.hero-art{position:absolute;right:7%;font-size:100px;transform:rotate(-12deg);filter:drop-shadow(0 15px 15px #0005)}
+.hero-art span{display:block}
+.search{margin-top:22px;display:flex;background:white;border-radius:13px;padding:5px;max-width:480px}
+.search input{border:0;outline:0;padding:12px;flex:1;min-width:0;font-size:14px}
+.search button{background:var(--purple);color:white;border:0;border-radius:9px;padding:0 18px;font-weight:700}
+.stats{display:flex;justify-content:space-around;gap:15px;background:var(--panel);border:1px solid #ffffff12;border-radius:16px;padding:20px;margin:18px 0 45px}
+.stats strong{font:800 24px Outfit;color:#c3aaff;display:block}
+.stats span{font-size:11px;color:var(--muted)}
+h2{font:800 30px Outfit;margin:7px 0 18px}
+.section-label{font-size:10px;letter-spacing:2px;color:#b79aff;font-weight:800}
+.categories,.stores{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.pill{background:var(--panel);border:1px solid #ffffff18;color:#eee;padding:10px 15px;border-radius:30px;cursor:pointer;font-weight:700;font-size:12px}
+.pill.active,.pill:hover{background:var(--purple);border-color:var(--purple)}
+.filters{display:flex;gap:12px;margin:22px 0}
+select{background:var(--panel);color:white;border:1px solid #ffffff20;padding:11px;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid #ffffff12;border-radius:17px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#956bff}
+.photo{height:160px;background:linear-gradient(145deg,#33274d,#251d37);display:grid;place-items:center;font-size:65px;position:relative}
+.discount{position:absolute;top:12px;left:12px;background:#ff568d;padding:6px 9px;border-radius:7px;font-size:11px;font-weight:800}
+.details{padding:15px}
+.details h3{font:700 16px Outfit;margin:0 0 7px}
+.shop{color:var(--muted);font-size:11px}
+.price{font:800 23px Outfit;margin-top:14px}
+.old{font-size:12px;text-decoration:line-through;color:#938ba2;margin-left:7px}
+.notice{margin-top:30px;padding:16px;border:1px solid #d69d4938;background:#d69d4910;color:#eacb98;border-radius:12px;font-size:12px;line-height:1.6}
+footer{text-align:center;color:var(--muted);padding:35px 15px;font-size:12px;border-top:1px solid #ffffff12;margin-top:55px}
+.empty{padding:40px;text-align:center;color:var(--muted);display:none}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero-art{right:-30px;opacity:.4}.hero{padding:30px 23px}.stats span{font-size:9px}}
+@media(max-width:480px){main{padding:18px 13px}.hero{min-height:330px}.hero-art{font-size:70px;top:20px}.stats{padding:15px 5px}.stats strong{font-size:20px}.stats span{font-size:8px}.grid{gap:9px}.photo{height:120px;font-size:50px}.details{padding:11px}.details h3{font-size:13px}.price{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">tilbuds<span>jakten</span><small>NORGES GODBITJAKT</small></div>
+ <div class="status">● Tilbudsoversikt</div>
+</header>
+<main>
+ <section class="hero">
+  <div class="hero-content">
+   <div class="eyebrow">🍬 JAKT PÅ GODE KUPP</div>
+   <h1>Mer snacks.<br><span>Mindre penger.</span></h1>
+   <p>Finn godteri, sjokolade, chips og drikke til gode priser!</p>
+   <div class="search">
+    <input id="search" placeholder="Søk etter Freia, Smash!, chips ...">
+    <button onclick="render()">Søk</button>
+   </div>
+  </div>
+  <div class="hero-art"><span>🍫 🍬</span><span>🍿 🥤</span></div>
+ </section>
+
+ <section class="stats">
+  <div><strong id="total">8</strong><span>varer i oversikten</span></div>
+  <div><strong>4</strong><span>butikkjeder</span></div>
+  <div><strong>100%</strong><span>snacksfokus</span></div>
+ </section>
+
+ <div class="section-label">GODTERIJAKTEN</div>
+ <h2>Finn din favoritt 🔥</h2>
+ <div class="categories" id="categories">
+  <button class="pill active" data-cat="Alle">🔥 Alle</button>
+  <button class="pill" data-cat="Godteri">🍬 Godteri</button>
+  <button class="pill" data-cat="Sjokolade">🍫 Sjokolade</button>
+  <button class="pill" data-cat="Chips">🍟 Chips</button>
+  <button class="pill" data-cat="Drikke">🥤 Drikke</button>
+  <button class="pill" data-cat="Is">🍦 Is</button>
+ </div>
+ <div class="stores" id="stores">
+  <button class="pill active" data-store="Alle">Alle butikker</button>
+  <button class="pill" data-store="KIWI">KIWI</button>
+  <button class="pill" data-store="REMA 1000">REMA 1000</button>
+  <button class="pill" data-store="Extra">Extra</button>
+  <button class="pill" data-store="MENY">MENY</button>
+ </div>
+ <div class="filters">
+  <select id="sort" onchange="render()">
+   <option value="discount">Beste rabatt</option>
+   <option value="price">Laveste pris</option>
+   <option value="name">Navn A–Å</option>
+  </select>
+ </div>
+ <div class="grid" id="products"></div>
+ <div class="empty" id="empty">Ingen varer funnet. Prøv et annet søk!</div>
+ <div class="notice">⚠️ Dette er en demonstrasjon med eksempelprodukter og eksempelpriser. Prisene er ikke bekreftede tilbud fra butikkene. Vi kobler til ekte tilbudskilder før nettsiden brukes som tilbudsoversikt.</div>
+</main>
+<footer>
+ <div class="logo">tilbuds<span>jakten</span></div>
+ <p>På jakt etter de gode kuppene 🍬</p>
+ <p>Tilbudsjakten er en uavhengig tjeneste og er ikke tilknyttet dagligvarekjedene.</p>
+</footer>
+<script>
+const products=[
+ {name:"Freia Melkesjokolade 200 g",store:"KIWI",cat:"Sjokolade",price:29.90,old:39.90,discount:25,emoji:"🍫"},
+ {name:"Maarud Potetgull Paprika",store:"REMA 1000",cat:"Chips",price:24.90,old:34.90,discount:29,emoji:"🍟"},
+ {name:"Haribo Goldbears",store:"MENY",cat:"Godteri",price:19.90,old:29.90,discount:33,emoji:"🐻"},
+ {name:"Smash! 200 g",store:"Extra",cat:"Sjokolade",price:34.90,old:44.90,discount:22,emoji:"🍬"},
+ {name:"Pepsi Max 1,5 l",store:"KIWI",cat:"Drikke",price:22.90,old:29.90,discount:23,emoji:"🥤"},
+ {name:"Monster Energy 500 ml",store:"MENY",cat:"Drikke",price:19.90,old:25.90,discount:23,emoji:"⚡"},
+ {name:"Sørlandschips Havsalt",store:"Extra",cat:"Chips",price:27.90,old:36.90,discount:24,emoji:"🥔"},
+ {name:"Iskrem sandwich",store:"REMA 1000",cat:"Is",price:16.90,old:22.90,discount:26,emoji:"🍦"}
+];
+let category="Alle",store="Alle";
+document.querySelectorAll("#categories button").forEach(b=>b.onclick=()=>{category=b.dataset.cat;activate("#categories",b);render()});
+document.querySelectorAll("#stores button").forEach(b=>b.onclick=()=>{store=b.dataset.store;activate("#stores",b);render()});
+function activate(parent,button){document.querySelectorAll(parent+" button").forEach(x=>x.classList.remove("active"));button.classList.add("active")}
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ let list=products.filter(p=>(category==="Alle"||p.cat===category)&&(store==="Alle"||p.store===store)&&(p.name+" "+p.store).toLowerCase().includes(q));
+ const sort=document.getElementById("sort").value;
+ if(sort==="price")list.sort((a,b)=>a.price-b.price);
+ if(sort==="discount")list.sort((a,b)=>b.discount-a.discount);
+ if(sort==="name")list.sort((a,b)=>a.name.localeCompare(b.name,"no"));
+ document.getElementById("products").innerHTML=list.map(p=>`
+ <article class="card">
+  <div class="photo"><span class="discount">-${p.discount}%</span>${p.emoji}</div>
+  <div class="details"><h3>${p.name}</h3><div class="shop">${p.store} · ${p.cat}</div>
+  <div class="price">${p.price.toFixed(2).replace(".",",")} kr <span class="old">${p.old.toFixed(2).replace(".",",")} kr</span></div></div>
+ </article>`).join("");
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+document.getElementById("search").addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
